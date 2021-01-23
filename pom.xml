@@ -26,7 +26,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>finalPacman.Main</mainClass>
+                    <mainClass>be.inf1.finalPacman.Pacman</mainClass>
                 </configuration>
                 <executions>
                     <execution>

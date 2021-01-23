@@ -1,9 +1,10 @@
-<?import javafx.scene.layout.AnchorPane?><?import finalPacman.PacManView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import be.inf1.finalPacman.view.PacmanView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
-<BorderPane fx:controller="finalPacman.Controller" style="-fx-background-color: black;" xmlns:fx="http://javafx.com/fxml">
+<BorderPane fx:controller="be.inf1.finalPacman.PacmanController" style="-fx-background-color: black;" xmlns:fx="http://javafx.com/fxml">
     <top>
         <BorderPane prefHeight="35" style="-fx-background-color: #0B5091; -fx-padding: 10px, 5px, 10px, 5px" >
             <left><Label fx:id="scoreLabel" style="-fx-font-size: 150%; -fx-text-fill: white" /></left>
@@ -13,7 +14,7 @@
     </top>
 
     <center>
-        <PacManView fx:id="pacManView" rowCount="21" columnCount="19" />
+        <PacmanView fx:id="pacManView" rowCount="21" columnCount="19" />
     </center>
 
     <bottom>

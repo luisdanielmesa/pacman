@@ -1,8 +1,8 @@
-finalPacman\Controller$1.class
-finalPacman\Controller.class
-finalPacman\Main.class
-finalPacman\PacManView.class
-finalPacman\PacManModel$CellValue.class
-finalPacman\Controller$1$1.class
-finalPacman\PacManModel$Direction.class
-finalPacman\PacManModel.class
+be\inf1\finalPacman\PacmanController$1.class
+be\inf1\finalPacman\PacmanController.class
+be\inf1\finalPacman\model\PacmanModel$CellValue.class
+be\inf1\finalPacman\Pacman.class
+be\inf1\finalPacman\model\PacmanModel.class
+be\inf1\finalPacman\PacmanController$1$1.class
+be\inf1\finalPacman\model\PacmanModel$Direction.class
+be\inf1\finalPacman\view\PacmanView.class

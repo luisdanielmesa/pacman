@@ -3,8 +3,10 @@
  * The Controller handles user input and coordinates the updating of the model and the view with the help of a timer.
  */
 
-package finalPacman;
+package be.inf1.finalPacman;
 
+import be.inf1.finalPacman.model.PacmanModel;
+import be.inf1.finalPacman.view.PacmanView;
 import javafx.fxml.FXML;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
@@ -14,21 +16,21 @@ import javafx.application.Platform;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Controller implements EventHandler<KeyEvent> {
+public class PacmanController implements EventHandler<KeyEvent> {
     final private static double FRAMES_PER_SECOND = 5.0;
 
     @FXML private Label scoreLabel;
     @FXML private Label levelLabel;
     @FXML private Label gameOverLabel;
-    @FXML private PacManView pacManView;
-    private PacManModel pacManModel;
+    @FXML private PacmanView pacManView;
+    private PacmanModel pacManModel;
     private static final String[] levelFiles = {"src/levels/level1.txt", "src/levels/level2.txt", "src/levels/level3.txt"};
 
     private Timer timer;
     private static int ghostEatingModeCounter;
     private boolean paused;
 
-    public Controller() {
+    public PacmanController() {
         this.paused = false;
     }
 
@@ -37,8 +39,8 @@ public class Controller implements EventHandler<KeyEvent> {
      */
     public void initialize() {
         String file = this.getLevelFile(0);
-        this.pacManModel = new PacManModel();
-        this.update(PacManModel.Direction.NONE);
+        this.pacManModel = new PacmanModel();
+        this.update(PacmanModel.Direction.NONE);
         ghostEatingModeCounter = 25;
         this.startTimer();
     }
@@ -63,10 +65,10 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
     /**
-     * Steps the PacManModel, updates the view, updates score and level, displays Game Over/You Won, and instructions of how to play
+     * Steps the PacmanModel, updates the view, updates score and level, displays Game Over/You Won, and instructions of how to play
      * @param direction the most recently inputted direction for PacMan to move in
      */
-    private void update(PacManModel.Direction direction) {
+    private void update(PacmanModel.Direction direction) {
         this.pacManModel.step(direction);
         this.pacManView.update(pacManModel);
         this.scoreLabel.setText(String.format("Score: %d", this.pacManModel.getScore()));
@@ -95,15 +97,15 @@ public class Controller implements EventHandler<KeyEvent> {
     public void handle(KeyEvent keyEvent) {
         boolean keyRecognized = true;
         KeyCode code = keyEvent.getCode();
-        PacManModel.Direction direction = PacManModel.Direction.NONE;
+        PacmanModel.Direction direction = PacmanModel.Direction.NONE;
         if (code == KeyCode.LEFT) {
-            direction = PacManModel.Direction.LEFT;
+            direction = PacmanModel.Direction.LEFT;
         } else if (code == KeyCode.RIGHT) {
-            direction = PacManModel.Direction.RIGHT;
+            direction = PacmanModel.Direction.RIGHT;
         } else if (code == KeyCode.UP) {
-            direction = PacManModel.Direction.UP;
+            direction = PacmanModel.Direction.UP;
         } else if (code == KeyCode.DOWN) {
-            direction = PacManModel.Direction.DOWN;
+            direction = PacmanModel.Direction.DOWN;
         } else if (code == KeyCode.G) {
             pause();
             this.pacManModel.startNewGame();
@@ -128,11 +130,11 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
     public double getBoardWidth() {
-        return PacManView.CELL_WIDTH * this.pacManView.getColumnCount();
+        return PacmanView.CELL_WIDTH * this.pacManView.getColumnCount();
     }
 
     public double getBoardHeight() {
-        return PacManView.CELL_WIDTH * this.pacManView.getRowCount();
+        return PacmanView.CELL_WIDTH * this.pacManView.getRowCount();
     }
 
     public static void setGhostEatingModeCounter() {
